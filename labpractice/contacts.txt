@@ -1,0 +1,3 @@
+meow 	 234
+shika 	 2
+buddhu 	 3

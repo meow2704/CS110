@@ -1,0 +1,1 @@
+the word chuck is found 1 times in the text file
