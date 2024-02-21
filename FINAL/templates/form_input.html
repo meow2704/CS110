@@ -1,0 +1,100 @@
+<!-- this html file is for the function of the function form_input() -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HarmonyHub Results</title>
+    <style>
+        /* Add your styling here */
+        body {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 7s ease infinite;
+            height: 100vh;
+            position: relative;
+            color: white;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        h1, p {
+            text-align: center;
+        }
+
+        table {
+            margin: 0 auto;
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 80%;
+            color: white;
+        }
+
+        th, td {
+            border: 1px solid white;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #009688;
+        }
+
+        input[type="submit"] {
+            background-color: #009688;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #00796b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <p>Search results for keyword: {{ keyword }}</p>
+
+    <form method="POST" action="/selected_songs">
+        <input type="hidden" name="keyword" value="{{ keyword }}">
+        
+        <table>
+            <tr>
+                <th>Select</th>
+                <th>Track Name</th>
+                <th>Artist</th>
+                <th>Popularity</th>
+            </tr>
+            
+            {% for track in track_checkboxes %}
+                <tr>
+                    <td><input type="checkbox" name="selected_tracks" value="{{ loop.index0 }}"></td>
+                    <td>{{ track["name"] }}</td>
+                    <td>{{ track["artist"] }}</td>
+                    <td>{{ track["listeners"] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>

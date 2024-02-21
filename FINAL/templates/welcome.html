@@ -1,0 +1,79 @@
+<!-- this html file is for the function of the function wecome()
+this sets the layout and post for for the welcome page of HarmonyHub -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        body {
+            background: linear-gradient(-45deg, #6200ea, #009688);
+            background-size: 400% 400%;
+            animation: gradient 10s ease infinite;
+            height: 100vh;
+            position: relative;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .music-note {
+            position: absolute;
+            width: 20px;
+            height: 40px;
+            background-color: #ffeb3b;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation: float 1.5s ease infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        input[type="submit"] {
+            background-color: #009688;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #00796b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the HarmonyHub!</h1>
+    <form action="/welcome" method="post">
+        <input type="submit" value="Next">
+    </form>
+</body>
+</html>
